@@ -23,7 +23,7 @@ mv rollup-jest-boilerplate-master new-super-library
 
 **Next steps:**
 - search the project for `rollup-starter-lib` and replace everywhere with `new-super-library`
-- start coding in [src/main.js](src/main.js)
+- start coding in [src/index.js](src/index.js)
 - profit 💸
 
 ## Live examples

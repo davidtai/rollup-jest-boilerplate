@@ -1,4 +1,4 @@
-import rollupJestBoilerplate from './main.js';
+import rollupJestBoilerplate from './index.js';
 
 describe('rollupJestBoilerplate', () => {
   it('rollupJestBoilerplate(string)', () => {

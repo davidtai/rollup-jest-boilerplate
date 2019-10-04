@@ -6,7 +6,7 @@ import babel from 'rollup-plugin-babel';
 export default [
   // browser-friendly UMD build
   {
-    input: 'src/main.js',
+    input: 'src/index.js',
     output: {
       name: 'rollupJestBoilerplate',
       file: pkg.browser,
@@ -29,7 +29,7 @@ export default [
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: 'src/main.js',
+    input: 'src/index.js',
     external: [],
     output: [
       { file: pkg.main, format: 'cjs', sourcemap: true },
