@@ -6,7 +6,6 @@
 - 📜 [Rollup.js](https://rollupjs.org/guide/en) configuration providing compatibility with different module systems (CommonJS, ECMAScript, UMD for `<script>` tags)
 - 🃏 [Jest](http://jestjs.io/) setup with watch mode working
 - 🛀 [Renovate](https://github.com/apps/renovate) configuration for auto updates (you have to activate it via https://github.com/apps/renovate)
-- 🐈 [Yarn](https://yarnpkg.com/) with lock file, [pinned](https://renovatebot.com/docs/dependency-pinning/) devDependencies and fixed Yarn version in .yarnrc using [Yarn policies](https://yarnpkg.com/lang/en/docs/cli/policies/)
 - ✅ [Travis CI](https://travis-ci.com/)
 - 🏗 [.nvmrc](https://github.com/creationix/nvm) file to enforce the Node.js version for contributors and continuous integration
 - ⚡️ Ready to publish and use
@@ -40,14 +39,13 @@ Those examples are using the live published version of this boilerplate library 
 To run this project, you will need:
 
 - Node.js >= v10.5.0, use nvm - [install instructions](https://github.com/creationix/nvm#install-script)
-- Yarn >= v1.7.0 - [install instructions ("Alternatives" tab)](https://yarnpkg.com/en/docs/install#alternatives-rc)
 
 ## Running tests
 
 ```sh
-yarn
-yarn test
-yarn test --watch
+npm
+npm test
+npm test --watch
 ```
 
 ## Dev mode
@@ -55,7 +53,7 @@ yarn test --watch
 When developing you can run:
 
 ```
-yarn watch
+npm run watch
 ```
 
 This will regenerate the build files each time a source file is changed and serve on http://127.0.0.1:5000.

@@ -11,6 +11,7 @@ export default [
       name: 'rollupJestBoilerplate',
       file: pkg.browser,
       format: 'umd',
+      sourcemap: true,
     },
     plugins: [
       resolve(),
@@ -31,8 +32,8 @@ export default [
     input: 'src/main.js',
     external: [],
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
+      { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.module, format: 'es', sourcemap: true },
     ],
   },
 ];
