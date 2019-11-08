@@ -1,9 +1,9 @@
 {
   "name": "rollup-jest-boilerplate",
   "version": "1.0.1",
-  "main": "dist/rollup-jest-boilerplate.cjs.js",
-  "module": "dist/rollup-jest-boilerplate.esm.js",
-  "browser": "dist/rollup-jest-boilerplate.umd.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,15 +22,19 @@
     "rollup": "1.23.0",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-filesize": "6.2.1",
     "rollup-plugin-json": "4.0.0",
     "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-peer-deps-external": "2.2.0",
+    "rollup-plugin-visualizer": "2.7.2",
     "serve": "11.2.0",
     "source-map-explorer": "2.1.0"
   },
   "scripts": {
     "audit": "node_modules/.bin/source-map-explorer dist/rollup-jest-boilerplate.umd.js",
     "prepare": "npm run build",
-    "build": "node_modules/.bin/rollup -c",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && node_modules/.bin/rollup -c",
     "build:watch": "node_modules/.bin/rollup -c -w",
     "watch": "node_modules/.bin/concurrently 'npm run build:watch' 'node_modules/.bin/serve -l tcp://127.0.0.1'",
     "test": "node_modules/.bin/jest && npm run build",
@@ -46,8 +50,15 @@
     },
     "automergeType": "branch"
   },
+  "directories": {
+    "src": "src",
+    "dist": "dist"
+  },
   "files": [
+    "src",
     "dist"
   ],
-  "browserslist": "> 0.25%, not dead"
+  "browserslist": [
+    "defaults"
+  ]
 }

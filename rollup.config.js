@@ -3,6 +3,9 @@ import commonjs from 'rollup-plugin-commonjs'
 import pkg from './package.json'
 import babel from 'rollup-plugin-babel'
 import json from 'rollup-plugin-json'
+import filesize from 'rollup-plugin-filesize'
+import visualizer from 'rollup-plugin-visualizer'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 import fs from 'fs'
 import nodeEval from 'node-eval'
@@ -30,12 +33,11 @@ export function getNamedExports(moduleIds) {
 }
 
 const plugins = [
-  resolve(),
+  peerDepsExternal(),
   json({
     // All JSON files will be parsed by default,
     // but you can also specifically include/exclude files
     include: 'node_modules/**',
-    exclude: [ 'node_modules/foo/**', 'node_modules/bar/**' ],
 
     // for tree-shaking, properties will be declared as
     // variables, using either `var` or `const`
@@ -51,10 +53,13 @@ const plugins = [
     // generate a named export for every property of the JSON object
     namedExports: true // Default: true
   }),
+  resolve(),
   babel({
     exclude: 'node_modules/**',
   }),
   commonjs(),
+  filesize(),
+  visualizer(),
 ]
 
 export default [
@@ -63,7 +68,7 @@ export default [
     input: 'src/index.js',
     plugins,
     output: {
-      name: 'rollupJestBoilerplate',
+      name: pkg.name,
       file: pkg.browser,
       format: 'umd',
       sourcemap: true,
